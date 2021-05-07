@@ -13,28 +13,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_sellers")
 public class Seller {
-	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
-	@OneToMany(mappedBy = "seller" )//nome do atributo mapeado do outro lado
-	
+
+	@OneToMany(mappedBy = "seller") // nome do atributo mapeado do outro lado
+
 	private List<Sale> sales = new ArrayList<>();
-	
+
 	public Seller() {
-		
+
 	}
 
-	
 	public Seller(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -52,9 +49,8 @@ public class Seller {
 		this.name = name;
 	}
 
-	
-	public List<Sale> getSales() { //para coleções coloca-se apenas o get
+	public List<Sale> getSales() { // para coleções coloca-se apenas o get
 		return sales;
 	}
-	
+
 }
